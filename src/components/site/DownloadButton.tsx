@@ -8,7 +8,6 @@ type DownloadButtonProps = {
   size?: "sm" | "md" | "lg";
   className?: string;
   label?: ReactNode;
-  showValue?: boolean;
   thankYouClassName?: string;
   restartClassName?: string;
 };
@@ -28,7 +27,6 @@ export function DownloadButton({
   size = "md",
   className,
   label = "Download PCReady",
-  showValue = true,
   thankYouClassName,
   restartClassName = "text-graphite",
 }: DownloadButtonProps) {
@@ -82,9 +80,6 @@ export function DownloadButton({
       )}
     >
       <Download className="h-4 w-4" aria-hidden="true" /> {label}
-      {showValue ? (
-        <span className="font-mono text-[11px] opacity-80">· {downloadArtifact.sizeLabel}</span>
-      ) : null}
     </button>
   );
 }
