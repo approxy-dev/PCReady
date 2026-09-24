@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, Section } from "@/components/site/PageShell";
 import { Panel, Reveal } from "@/components/site/primitives";
+import { LegalNotice } from "@/components/site/LegalNotice";
+import { legalDisclaimer } from "@/lib/site";
 
 const title = "Terms — PCReady";
 const description =
@@ -34,6 +36,10 @@ const points = [
     d: "Windows and Office tools are informational and assume you hold valid licences for the software you deploy.",
   },
   {
+    t: "No piracy",
+    d: "PCReady does not distribute, endorse, or promote cracked, pirated, or unlicensed software. Unofficial versions or activators for IDM, Windows, Office, or any other product are not supported.",
+  },
+  {
     t: "No warranty",
     d: "PCReady is provided as is. You remain responsible for the changes you apply to your system.",
   },
@@ -58,6 +64,9 @@ function TermsPage() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="mx-auto mt-10 max-w-4xl">
+          <LegalNotice>{legalDisclaimer.body}</LegalNotice>
+        </Reveal>
       </Section>
     </>
   );

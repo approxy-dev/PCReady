@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Download,
   Search,
   Package,
   Layers,
@@ -46,6 +45,9 @@ import {
 } from "@/components/site/cards";
 import { FAQAccordion } from "@/components/site/FAQAccordion";
 import { CTASection } from "@/components/site/CTASection";
+import { DownloadButton } from "@/components/site/DownloadButton";
+import { LegalNotice } from "@/components/site/LegalNotice";
+import { legalDisclaimer } from "@/lib/site";
 import { catalogApps, categories, profiles } from "@/data/catalog";
 
 const title = "PCReady — Fresh PC. Ready Faster.";
@@ -151,12 +153,7 @@ function Index() {
               installation.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link
-                to="/download"
-                className={buttonClass({ size: "lg", className: "w-full sm:w-auto" })}
-              >
-                <Download className="h-4 w-4" aria-hidden="true" /> Download PCReady
-              </Link>
+              <DownloadButton size="lg" className="w-full sm:w-auto" />
               <Link
                 to="/features"
                 className={buttonClass({
@@ -473,6 +470,15 @@ function Index() {
                 )}
               </ol>
             </Panel>
+          </Reveal>
+        </Container>
+      </section>
+
+      {/* Responsible use */}
+      <section className="py-16 sm:py-20">
+        <Container>
+          <Reveal className="mx-auto max-w-4xl">
+            <LegalNotice className="sm:p-8">{legalDisclaimer.body}</LegalNotice>
           </Reveal>
         </Container>
       </section>

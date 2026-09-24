@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./primitives";
 import { PCReadyMark } from "./PCReadyMark";
+import { downloadArtifact } from "@/lib/site";
 
 const groups = [
   {
@@ -15,7 +16,6 @@ const groups = [
   {
     title: "Resources",
     links: [
-      { label: "Download", to: "/download" },
       { label: "Documentation", to: "/documentation" },
       { label: "Privacy", to: "/privacy" },
       { label: "Terms", to: "/terms" },
@@ -25,7 +25,7 @@ const groups = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-[#2E3033] text-[#E5E4E2]">
+    <footer className="border-t border-border bg-[#2E3033] text-[#E5E4E2]">
       <Container className="py-14">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
@@ -63,8 +63,30 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-[#53565A] pt-6 text-xs text-[#A7A9AC] sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} PCReady. All rights reserved.</p>
-          <p className="font-mono">Windows 10 · Windows 11 · x64 · ARM64</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <a
+              href={downloadArtifact.href}
+              download={downloadArtifact.file}
+              rel="noopener"
+              className="font-semibold text-[#E5E4E2] transition-colors hover:text-white"
+            >
+              Download PCReady
+            </a>
+            <p className="font-mono">Windows 10 · Windows 11 · x64 · ARM64</p>
+          </div>
         </div>
+
+        <p className="mt-6 text-xs leading-relaxed text-[#8b8d91]">
+          PCReady does not promote cracked, pirated, or unlicensed software. You are responsible for
+          obtaining valid licences for the software you install. See our{" "}
+          <Link
+            to="/terms"
+            className="text-[#A7A9AC] underline underline-offset-2 hover:text-white"
+          >
+            Terms of Use
+          </Link>{" "}
+          for details.
+        </p>
       </Container>
     </footer>
   );

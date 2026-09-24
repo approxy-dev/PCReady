@@ -1,4 +1,0 @@
-﻿be472e308735f1564d31685f28573204738dce95111faa5ac3b468e71e1f2adc  PCReady-v2.5.0-win-x64-portable-selfcontained.zip
-154eeb0681120773aa27c2bf51ab28968d3f7967fb0e365760d01b3afd4ab257  PCReady-v2.5.0-win-x64-framework-dependent.zip
-27a585845b892ee870ffe18980189a56d7e102ce247e86d34344e897ba61c916  publish-selfcontained/PCReady.exe
-a4320b9a1636325fb10bc2fe5a631bab2d8b67c2bab8ab40ccc6c9a93d7fa057  PCReady-Setup-v2.5.0-win-x64.exe

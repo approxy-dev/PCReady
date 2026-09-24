@@ -2,6 +2,7 @@ import type { ComponentType, ReactNode } from "react";
 import { Check } from "lucide-react";
 import type { CatalogApp, Profile } from "@/data/catalog";
 import { AppGlyph, Label, Panel, ActionLink } from "./primitives";
+import { DownloadButton } from "./DownloadButton";
 import { cn } from "@/lib/utils";
 
 export function FeatureCard({
@@ -85,9 +86,7 @@ export function ProfileCard({ profile }: { profile: Profile }) {
         </ul>
       ) : null}
       <div className="mt-5 flex items-center gap-2 border-t border-border pt-4">
-        <ActionLink to="/download" variant="primary" size="sm" className="w-full">
-          {custom ? "Build Custom Profile" : "Install Profile"}
-        </ActionLink>
+        <DownloadButton variant="primary" size="sm" className="w-full" />
       </div>
       <p className="mt-2.5 flex items-center gap-1.5 text-[11px] font-medium text-success">
         <Check className="h-3 w-3" aria-hidden="true" /> Install missing only

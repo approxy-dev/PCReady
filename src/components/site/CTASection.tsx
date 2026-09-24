@@ -1,6 +1,7 @@
-import { Download, FileText } from "lucide-react";
+import { FileText } from "lucide-react";
 import { Container, Reveal, buttonClass } from "./primitives";
 import { Link } from "@tanstack/react-router";
+import { DownloadButton } from "./DownloadButton";
 
 export function CTASection() {
   return (
@@ -21,15 +22,12 @@ export function CTASection() {
             environment faster.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link
-              to="/download"
-              className={buttonClass({
-                size: "lg",
-                className: "w-full bg-white text-[#2E3033] hover:bg-[#E5E4E2] sm:w-auto",
-              })}
-            >
-              <Download className="h-4 w-4" aria-hidden="true" /> Download PCReady
-            </Link>
+            <DownloadButton
+              size="lg"
+              className="w-full bg-white text-[#2E3033] hover:bg-[#E5E4E2] sm:w-auto"
+              thankYouClassName="text-white"
+              restartClassName="text-[#E5E4E2]"
+            />
             <Link
               to="/documentation"
               className={buttonClass({

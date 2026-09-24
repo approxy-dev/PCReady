@@ -59,9 +59,10 @@ npm run preview     # serve the production build locally
    | GitHub Pages     | Run the build in CI and publish `.output/public` as an artifact (build output dirs are gitignored). |
    | Any VPS / CDN    | Copy `.output/public` to your web root.                                                             |
 
-> The downloaded release binaries (~131 MB across three v2.5.0 builds) are committed under
-> `public/downloads/` on purpose so the Download page works without external hosting. If
-> you'd rather serve them from your own CDN, override the URLs in `src/lib/site.ts`.
+> The release binary is committed under `public/downloads/` (`PCReady.exe`, self-contained
+> portable build ~161 MB, plus `VERSION.txt`) on purpose so every download button can serve it
+> directly without external hosting. Any 404/hash mismatch is avoided because the file ships
+> with the site.
 
 ## Security headers
 
@@ -106,7 +107,6 @@ Then update the matching `sha256` + `sizeBytes` fields in `src/lib/site.ts`.
 | `/catalog`       | `src/routes/catalog.tsx`       |
 | `/profiles`      | `src/routes/profiles.tsx`      |
 | `/how-it-works`  | `src/routes/how-it-works.tsx`  |
-| `/download`      | `src/routes/download.tsx`      |
 | `/documentation` | `src/routes/documentation.tsx` |
 | `/privacy`       | `src/routes/privacy.tsx`       |
 | `/terms`         | `src/routes/terms.tsx`         |
@@ -117,4 +117,4 @@ Then update the matching `sha256` + `sizeBytes` fields in `src/lib/site.ts`.
 - `src/data/pcready.ts` — hand-written site content (FAQ, queue mock).
 - `src/lib/site.ts` — site constants: `SITE_URL`, download artifact metadata + checksums.
 - `scripts/generate-catalog.mjs` — catalog/profile generator.
-- `public/downloads/` — release binaries served by the Download page.
+- `public/downloads/` — self-contained portable release (`PCReady.exe` + `VERSION.txt`), served directly by every download button.

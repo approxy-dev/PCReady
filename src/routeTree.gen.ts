@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CatalogRouteImport } from './routes/catalog'
 import { Route as DocumentationRouteImport } from './routes/documentation'
-import { Route as DownloadRouteImport } from './routes/download'
 import { Route as FeaturesRouteImport } from './routes/features'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as PrivacyRouteImport } from './routes/privacy'
@@ -32,11 +31,6 @@ const CatalogRoute = CatalogRouteImport.update({
 const DocumentationRoute = DocumentationRouteImport.update({
   id: '/documentation',
   path: '/documentation',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DownloadRoute = DownloadRouteImport.update({
-  id: '/download',
-  path: '/download',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FeaturesRoute = FeaturesRouteImport.update({
@@ -69,7 +63,6 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/catalog': typeof CatalogRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/privacy': typeof PrivacyRoute
@@ -80,7 +73,6 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/catalog': typeof CatalogRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/privacy': typeof PrivacyRoute
@@ -92,7 +84,6 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/catalog': typeof CatalogRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
   '/features': typeof FeaturesRoute
   '/how-it-works': typeof HowItWorksRoute
   '/privacy': typeof PrivacyRoute
@@ -105,7 +96,6 @@ export interface FileRouteTypes {
     | '/'
     | '/catalog'
     | '/documentation'
-    | '/download'
     | '/features'
     | '/how-it-works'
     | '/privacy'
@@ -116,7 +106,6 @@ export interface FileRouteTypes {
     | '/'
     | '/catalog'
     | '/documentation'
-    | '/download'
     | '/features'
     | '/how-it-works'
     | '/privacy'
@@ -127,7 +116,6 @@ export interface FileRouteTypes {
     | '/'
     | '/catalog'
     | '/documentation'
-    | '/download'
     | '/features'
     | '/how-it-works'
     | '/privacy'
@@ -139,7 +127,6 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CatalogRoute: typeof CatalogRoute
   DocumentationRoute: typeof DocumentationRoute
-  DownloadRoute: typeof DownloadRoute
   FeaturesRoute: typeof FeaturesRoute
   HowItWorksRoute: typeof HowItWorksRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -168,13 +155,6 @@ declare module '@tanstack/react-router' {
       path: '/documentation'
       fullPath: '/documentation'
       preLoaderRoute: typeof DocumentationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/download': {
-      id: '/download'
-      path: '/download'
-      fullPath: '/download'
-      preLoaderRoute: typeof DownloadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/features': {
@@ -219,7 +199,6 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CatalogRoute: CatalogRoute,
   DocumentationRoute: DocumentationRoute,
-  DownloadRoute: DownloadRoute,
   FeaturesRoute: FeaturesRoute,
   HowItWorksRoute: HowItWorksRoute,
   PrivacyRoute: PrivacyRoute,

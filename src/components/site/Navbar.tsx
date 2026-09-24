@@ -4,13 +4,13 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Container, buttonClass } from "./primitives";
 import { PCReadyMark } from "./PCReadyMark";
+import { DownloadButton } from "./DownloadButton";
 
 const links = [
   { label: "Features", to: "/features" },
   { label: "App Catalog", to: "/catalog" },
   { label: "Profiles", to: "/profiles" },
   { label: "How It Works", to: "/how-it-works" },
-  { label: "Download", to: "/download" },
   { label: "Documentation", to: "/documentation" },
 ];
 
@@ -55,9 +55,7 @@ export function Navbar() {
           <Link to="/features" className={buttonClass({ variant: "secondary", size: "sm" })}>
             Explore Features
           </Link>
-          <Link to="/download" className={buttonClass({ size: "sm" })}>
-            Download PCReady
-          </Link>
+          <DownloadButton size="sm" />
         </div>
 
         <button
@@ -87,13 +85,7 @@ export function Navbar() {
               </Link>
             ))}
             <div className="mt-3 flex flex-col gap-2">
-              <Link
-                to="/download"
-                onClick={() => setOpen(false)}
-                className={buttonClass({ className: "w-full" })}
-              >
-                Download PCReady
-              </Link>
+              <DownloadButton size="lg" className="w-full" />
               <Link
                 to="/features"
                 onClick={() => setOpen(false)}

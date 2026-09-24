@@ -5,6 +5,8 @@ import { Panel, Reveal, SectionHeading, TechBadge } from "@/components/site/prim
 import { LogViewer } from "@/components/site/cards";
 import { FAQAccordion } from "@/components/site/FAQAccordion";
 import { CTASection } from "@/components/site/CTASection";
+import { LegalNotice } from "@/components/site/LegalNotice";
+import { legalDisclaimer } from "@/lib/site";
 
 const title = "Documentation — PCReady";
 const architectureTitle = "Built with Modern Windows Technology";
@@ -145,6 +147,12 @@ function DocumentationPage() {
           </Reveal>
         </div>
       </section>
+
+      <Section>
+        <Reveal className="mx-auto max-w-4xl">
+          <LegalNotice>{legalDisclaimer.body}</LegalNotice>
+        </Reveal>
+      </Section>
 
       <Section>
         <Reveal>
