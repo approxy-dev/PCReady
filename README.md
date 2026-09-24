@@ -108,6 +108,7 @@ Then update the matching `sha256` + `sizeBytes` fields in `src/lib/site.ts`.
 | `/profiles`      | `src/routes/profiles.tsx`      |
 | `/how-it-works`  | `src/routes/how-it-works.tsx`  |
 | `/documentation` | `src/routes/documentation.tsx` |
+| `/download`      | `src/routes/download.tsx`      |
 | `/privacy`       | `src/routes/privacy.tsx`       |
 | `/terms`         | `src/routes/terms.tsx`         |
 

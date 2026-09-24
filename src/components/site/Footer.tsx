@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./primitives";
 import { PCReadyMark } from "./PCReadyMark";
-import { downloadArtifact } from "@/lib/site";
 
 const groups = [
   {
@@ -64,14 +63,12 @@ export function Footer() {
         <div className="mt-12 flex flex-col gap-3 border-t border-[#53565A] pt-6 text-xs text-[#A7A9AC] sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} PCReady. All rights reserved.</p>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <a
-              href={downloadArtifact.href}
-              download={downloadArtifact.file}
-              rel="noopener"
+            <Link
+              to="/download"
               className="font-semibold text-[#E5E4E2] transition-colors hover:text-white"
             >
               Download PCReady
-            </a>
+            </Link>
             <p className="font-mono">Windows 10 · Windows 11 · x64 · ARM64</p>
           </div>
         </div>

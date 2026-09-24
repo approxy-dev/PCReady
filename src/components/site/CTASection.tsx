@@ -25,8 +25,6 @@ export function CTASection() {
             <DownloadButton
               size="lg"
               className="w-full bg-white text-[#2E3033] hover:bg-[#E5E4E2] sm:w-auto"
-              thankYouClassName="text-white"
-              restartClassName="text-[#E5E4E2]"
             />
             <Link
               to="/documentation"
