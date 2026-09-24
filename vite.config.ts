@@ -25,6 +25,7 @@ import { nitro } from "nitro/vite";
 
 const NITRO_SERVER_ENTRY = "index.mjs";
 const NITRO_DEFAULT_SERVER_DIR = ".output/server";
+const NITRO_VERCEL_SERVER_DIR = ".vercel/output/functions/__server.func";
 const DEFAULT_SERVER_ENTRY_NAME = "server";
 const TSS_PRERENDERING_ENV = "TSS_PRERENDERING";
 const PRERENDER_PREVIEW_HOST = "127.0.0.1";
@@ -61,7 +62,11 @@ function prerenderPreviewShim(state: { file?: string }) {
       order: "post",
       handler: async () => {
         let entryDir;
-        for (const candidate of [NITRO_DEFAULT_SERVER_DIR, join("dist", "server")]) {
+        for (const candidate of [
+          NITRO_DEFAULT_SERVER_DIR,
+          NITRO_VERCEL_SERVER_DIR,
+          join("dist", "server"),
+        ]) {
           if (await exists(join(resolve(root, candidate), NITRO_SERVER_ENTRY))) {
             entryDir = resolve(root, candidate);
             break;
