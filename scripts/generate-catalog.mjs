@@ -1,0 +1,212 @@
+// Regenerates src/data/catalog.ts from the PCReady app's app_catalog.json.
+//
+// Usage:
+//   node scripts/generate-catalog.mjs [path-to-app_catalog.json]
+//
+// Default source candidates (in order):
+//   1. <cli arg>                          (explicit)
+//   2. src/data/app_catalog.json          (local copy)
+//   3. ../app_catalog.json                (repo sibling)
+//   4. app_catalog.json                   (cwd)
+//
+// The built-in profiles (name/description/appIds) mirror
+// src/AllInOne/Infrastructure/Profiles/ProfileManager.cs in the app repo.
+// Display names in profiles are resolved from the catalog's winget IDs.
+
+import { readFile, writeFile, access } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
+import { dirname, join, resolve } from "node:path";
+import { format as prettier } from "prettier";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, "..");
+const OUT = join(ROOT, "src", "data", "catalog.ts");
+
+const CANDIDATES = [
+  process.argv[2],
+  join(ROOT, "src", "data", "app_catalog.json"),
+  join(ROOT, "..", "app_catalog.json"),
+  "app_catalog.json",
+].filter(Boolean);
+
+async function findCatalog() {
+  for (const candidate of CANDIDATES) {
+    try {
+      await access(candidate);
+      return candidate;
+    } catch {
+      /* keep looking */
+    }
+  }
+  throw new Error(
+    `app_catalog.json not found. Tried:\n${CANDIDATES.map((c) => `  ${c}`).join("\n")}\n` +
+      `Pass the path explicitly: node scripts/generate-catalog.mjs <path>`,
+  );
+}
+
+// Mirrors GetBuiltinProfiles() in app repo ProfileManager.cs
+const PROFILE_SOURCES = [
+  {
+    name: "Student",
+    description: "Productivity and study essentials",
+    appIds: [
+      "Google.Chrome",
+      "Microsoft.VisualStudioCode",
+      "TheDocumentFoundation.LibreOffice",
+      "VideoLAN.VLC",
+      "7zip.7zip",
+      "Zoom.Zoom",
+      "Notion.Notion",
+      "Ankitects.Anki",
+      "DigitalScholar.Zotero",
+      "Obsidian.Obsidian",
+      "SumatraPDF.SumatraPDF",
+    ],
+  },
+  {
+    name: "Gamer",
+    description: "Gaming platforms and streaming tools",
+    appIds: [
+      "Valve.Steam",
+      "Discord.Discord",
+      "OBSProject.OBSStudio",
+      "7zip.7zip",
+      "Google.Chrome",
+      "EpicGames.EpicGamesLauncher",
+      "GOG.Galaxy",
+      "Ubisoft.Connect",
+      "Playnite.Playnite",
+      "Nvidia.GeForceExperience",
+    ],
+  },
+  {
+    name: "Mobile Developer",
+    description: "Android & cross-platform mobile stack — Studio, JDK, Kotlin, Flutter, SDK tools",
+    appIds: [
+      "Google.AndroidStudio",
+      "Microsoft.OpenJDK.21",
+      "EclipseAdoptium.Temurin.17.JDK",
+      "Google.PlatformTools",
+      "Google.AndroidNDK",
+      "Gradle.Gradle",
+      "JetBrains.Kotlin",
+      "Google.Flutter",
+      "Dart.DartSDK",
+      "Git.Git",
+      "GitHub.cli",
+      "Microsoft.VisualStudioCode",
+      "Postman.Postman",
+      "Scrcpy.Scrcpy",
+    ],
+  },
+  {
+    name: "Data / Python",
+    description: "Python, datasci & DB — Python 3.13/12, Jupyter, Anaconda-style, DBs",
+    appIds: [
+      "Python.Python.3.13",
+      "Python.Python.3.12",
+      "Microsoft.VisualStudioCode",
+      "JetBrains.DataSpell",
+      "DBeaver.DBeaver.Community",
+      "Oracle.MySQLWorkbench",
+      "dpage.pgAdmin",
+      "Docker.DockerDesktop",
+      "Git.Git",
+      "Microsoft.PowerShell",
+      "Anysphere.Cursor",
+    ],
+  },
+  {
+    name: "Technician",
+    description: "Clean Windows — browsers, Office, drivers, utilities after formatting",
+    appIds: [
+      "Google.Chrome",
+      "Mozilla.Firefox",
+      "7zip.7zip",
+      "VideoLAN.VLC",
+      "TheDocumentFoundation.LibreOffice",
+      "Adobe.Acrobat.Reader.64-bit",
+      "SumatraPDF.SumatraPDF",
+      "Bitwarden.Bitwarden",
+      "Notepad++.Notepad++",
+      "Rufus.Rufus",
+      "AnyDesk.AnyDesk",
+      "Zoom.Zoom",
+      "Malwarebytes.Malwarebytes",
+    ],
+  },
+];
+
+const source = await findCatalog();
+const raw = JSON.parse(await readFile(source, "utf8"));
+
+if (!raw.categories || typeof raw.categories !== "object") {
+  throw new Error(`Unexpected catalog shape in ${source}: missing object "categories".`);
+}
+if (!raw.catalogVersion) {
+  throw new Error(`Unexpected catalog shape in ${source}: missing "catalogVersion".`);
+}
+
+const nameById = new Map();
+const categories = [];
+const catalogApps = [];
+
+for (const [category, entries] of Object.entries(raw.categories)) {
+  categories.push(category);
+  for (const entry of entries) {
+    if (!entry?.name || !entry?.id) continue;
+    nameById.set(entry.id, entry.name);
+    catalogApps.push({ name: entry.name, wingetId: entry.id, category });
+  }
+}
+
+catalogApps.sort((a, b) => a.name.localeCompare(b.name));
+
+const profiles = PROFILE_SOURCES.map((p) => ({
+  name: p.name,
+  description: p.description,
+  appCount: p.appIds.length,
+  builtin: true,
+  apps: p.appIds.map((id) => nameById.get(id) ?? id),
+}));
+
+const output = await prettier(
+  `// Auto-generated by scripts/generate-catalog.mjs — do not edit by hand.
+// Source: ${source}
+
+export type CatalogApp = {
+  name: string;
+  wingetId: string;
+  category: string;
+};
+
+export type Profile = {
+  name: string;
+  description: string;
+  appCount: number;
+  builtin: boolean;
+  apps: string[];
+};
+
+export const catalogVersion = ${JSON.stringify(raw.catalogVersion)};
+
+export const categories = ${JSON.stringify(categories, null, 2)} as const;
+
+export const catalogStats = {
+  totalApps: ${catalogApps.length},
+  totalCategories: ${categories.length},
+} as const;
+
+export const catalogApps: CatalogApp[] = ${JSON.stringify(catalogApps, null, 2)};
+
+export const profiles: Profile[] = ${JSON.stringify(profiles, null, 2)};
+`,
+  { parser: "babel-ts", printWidth: 100, semi: true, singleQuote: false, trailingComma: "all" },
+);
+
+await writeFile(OUT, output);
+console.log(`Wrote ${OUT} (prettier-formatted)`);
+console.log(`  catalogVersion : ${raw.catalogVersion}`);
+console.log(`  categories     : ${categories.length}`);
+console.log(`  apps           : ${catalogApps.length}`);
+console.log(`  profiles       : ${profiles.length}`);
