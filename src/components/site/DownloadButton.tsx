@@ -14,7 +14,7 @@ type DownloadButtonProps = {
 
 function startDownload(file: string) {
   const a = document.createElement("a");
-  a.href = `/downloads/${file}`;
+  a.href = downloadArtifact.href;
   a.download = file;
   a.rel = "noopener";
   document.body.appendChild(a);

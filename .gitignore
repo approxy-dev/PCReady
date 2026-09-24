@@ -20,6 +20,10 @@ dist-ssr
 .wrangler/
 .dev.vars
 
+# Vercel prebuilt output: installer binaries live in public/downloads/ and are
+# served via GitHub Releases, never committed into .vercel/output.
+.vercel/output/static/downloads/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

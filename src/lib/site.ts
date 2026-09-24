@@ -20,8 +20,8 @@ export const downloadArtifact = {
   sha256: "27a585845b892ee870ffe18980189a56d7e102ce247e86d34344e897ba61c916",
   description:
     "No installer and no .NET runtime needed. Extract anywhere and run PCReady.exe — the self-contained portable build.",
-  href: "/downloads/PCReady.exe",
-  checksumHref: "/downloads/VERSION.txt",
+  href: "https://github.com/approxy-dev/PCReady/releases/latest/download/PCReady.exe",
+  checksumHref: "https://github.com/approxy-dev/PCReady/releases/latest/download/VERSION.txt",
 } as const;
 
 // Professional disclaimer shown around IDM / Windows / Office integrations.
