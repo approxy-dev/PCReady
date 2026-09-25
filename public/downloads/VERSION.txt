@@ -1,3 +1,3 @@
-﻿PCReady v2.5.0 - Portable Self-Contained (no .NET runtime required)
+﻿PCReady v1.10.0 - Portable Self-Contained (no .NET runtime required)
 Built: 2026-09-24 14:43:34
 Run PCReady.exe to launch.
