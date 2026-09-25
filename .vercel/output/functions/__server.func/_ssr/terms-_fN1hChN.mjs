@@ -1,9 +1,9 @@
 import { require_jsx_runtime } from "../_libs/@radix-ui/react-accordion+[...].mjs";
 import { Panel, Reveal } from "./primitives-DoEGU8Cj.mjs";
 import { PageHeader, Section } from "./PageShell-CGwDFtNr.mjs";
-import { legalDisclaimer } from "./site-Bvq3kyV4.mjs";
+import { legalDisclaimer } from "./site-DPGkgDjD.mjs";
 import { LegalNotice } from "./LegalNotice-CaOEav1m.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/terms-8t5YIhW5.js
+//#region node_modules/.nitro/vite/services/ssr/assets/terms-_fN1hChN.js
 var import_jsx_runtime = require_jsx_runtime();
 var points = [
 	{

@@ -4,10 +4,10 @@ import { PageHeader, Section } from "./PageShell-CGwDFtNr.mjs";
 import { Settings } from "../_libs/lucide-react.mjs";
 import { LogViewer } from "./cards-BsJyPwQc.mjs";
 import { CTASection } from "./CTASection-6s7N-FZ-.mjs";
-import { legalDisclaimer } from "./site-Bvq3kyV4.mjs";
+import { legalDisclaimer } from "./site-DPGkgDjD.mjs";
 import { FAQAccordion } from "./FAQAccordion-BNR4qNY5.mjs";
 import { LegalNotice } from "./LegalNotice-CaOEav1m.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/documentation-Cxz7OjkD.js
+//#region node_modules/.nitro/vite/services/ssr/assets/documentation-CrM57tEE.js
 var import_jsx_runtime = require_jsx_runtime();
 var architectureTitle = "Built with Modern Windows Technology";
 var settingsCards = [

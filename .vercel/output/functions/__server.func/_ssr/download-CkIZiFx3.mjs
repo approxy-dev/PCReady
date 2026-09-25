@@ -3,8 +3,8 @@ import { require_jsx_runtime, require_react } from "../_libs/@radix-ui/react-acc
 import { Label, Panel, Reveal } from "./primitives-DoEGU8Cj.mjs";
 import { PageHeader, Section } from "./PageShell-CGwDFtNr.mjs";
 import { CircleCheck, Download, RefreshCw, ShieldAlert, ShieldX, TriangleAlert } from "../_libs/lucide-react.mjs";
-import { downloadArtifact } from "./site-Bvq3kyV4.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/download-oIcpJ1kR.js
+import { downloadArtifact } from "./site-DPGkgDjD.mjs";
+//#region node_modules/.nitro/vite/services/ssr/assets/download-CkIZiFx3.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 function startDownload(file) {
@@ -73,20 +73,21 @@ function DownloadPage() {
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "mt-5 flex flex-col gap-3 sm:flex-row",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-							href: downloadArtifact.checksumHref,
+						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
+							href: downloadArtifact.href,
+							download: downloadArtifact.file,
 							rel: "noopener",
-							target: "_blank",
-							className: "inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm font-semibold text-graphite transition-colors hover:bg-hover",
-							children: "Verify checksum"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", {
-							type: "button",
-							onClick: () => startDownload(downloadArtifact.file),
 							className: "inline-flex items-center justify-center gap-2 rounded-lg bg-graphite px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-graphite-hover active:bg-graphite-pressed",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Download, {
 								className: "h-4 w-4",
 								"aria-hidden": "true"
 							}), " Download PCReady again"]
+						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+							href: downloadArtifact.checksumHref,
+							rel: "noopener",
+							target: "_blank",
+							className: "inline-flex items-center justify-center gap-2 rounded-lg border border-border bg-surface px-4 py-2.5 text-sm font-semibold text-graphite transition-colors hover:bg-hover",
+							children: "Verify checksum"
 						})]
 					})
 				]

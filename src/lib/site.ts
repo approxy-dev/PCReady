@@ -14,10 +14,10 @@ function formatSize(bytes: number): string {
 export const downloadArtifact = {
   file: "PCReady.exe",
   label: "PCReady (Self-contained)",
-  version: "2.5.0",
-  sizeBytes: 169_209_693,
-  sizeLabel: formatSize(169_209_693),
-  sha256: "27a585845b892ee870ffe18980189a56d7e102ce247e86d34344e897ba61c916",
+  version: "1.10.0",
+  sizeBytes: 168_558_431,
+  sizeLabel: formatSize(168_558_431),
+  sha256: "e82bbfaf37a3cb9d3172955d82785bead9ab42ce5949a70b24e1f4f0fb9bfb74",
   description:
     "No installer and no .NET runtime needed. Extract anywhere and run PCReady.exe — the self-contained portable build.",
   href: "https://github.com/approxy-dev/PCReady/releases/latest/download/PCReady.exe",

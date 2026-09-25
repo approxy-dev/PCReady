@@ -6,12 +6,12 @@ import { CircleCheck, Compass, FileCheckCorner, FileSpreadsheet, FileText, Gauge
 import { DownloadButton } from "./DownloadButton-BRoxT8i6.mjs";
 import { AppCard, FeatureCard, LogViewer, ProfileCard, SecurityFeature, StatCard, SystemToolCard } from "./cards-BsJyPwQc.mjs";
 import { CTASection } from "./CTASection-6s7N-FZ-.mjs";
-import { legalDisclaimer } from "./site-Bvq3kyV4.mjs";
+import { legalDisclaimer } from "./site-DPGkgDjD.mjs";
 import { FAQAccordion } from "./FAQAccordion-BNR4qNY5.mjs";
 import { LegalNotice } from "./LegalNotice-CaOEav1m.mjs";
 import { InstallationQueue, StateMachine } from "./InstallationQueue-BnxdnqjB.mjs";
 import { DashboardPreview } from "./DashboardPreview-M4mZ0zZz.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-CeeI4OgX.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-rKIRS2yg.js
 var import_jsx_runtime = require_jsx_runtime();
 var nav = [
 	{

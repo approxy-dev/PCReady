@@ -96,6 +96,14 @@ function DownloadPage() {
             </p>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <a
+                href={downloadArtifact.href}
+                download={downloadArtifact.file}
+                rel="noopener"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-graphite px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-graphite-hover active:bg-graphite-pressed"
+              >
+                <Download className="h-4 w-4" aria-hidden="true" /> Download PCReady again
+              </a>
+              <a
                 href={downloadArtifact.checksumHref}
                 rel="noopener"
                 target="_blank"
@@ -103,13 +111,6 @@ function DownloadPage() {
               >
                 Verify checksum
               </a>
-              <button
-                type="button"
-                onClick={() => startDownload(downloadArtifact.file)}
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-graphite px-5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-graphite-hover active:bg-graphite-pressed"
-              >
-                <Download className="h-4 w-4" aria-hidden="true" /> Download PCReady again
-              </button>
             </div>
           </Panel>
         </Reveal>
