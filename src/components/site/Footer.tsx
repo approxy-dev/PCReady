@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Container } from "./primitives";
 import { PCReadyMark } from "./PCReadyMark";
+import { GITHUB_PROFILE } from "../../lib/site";
 
 const groups = [
   {
@@ -69,6 +70,14 @@ export function Footer() {
             >
               Download PCReady
             </Link>
+            <a
+              href={GITHUB_PROFILE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-[#E5E4E2] transition-colors hover:text-white"
+            >
+              PCReady on GitHub
+            </a>
             <p className="font-mono">Windows 10 · Windows 11 · x64 · ARM64</p>
           </div>
         </div>

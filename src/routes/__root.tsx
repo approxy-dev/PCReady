@@ -10,7 +10,7 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { SITE_URL } from "../lib/site";
+import { GITHUB_PROFILE, SITE_URL } from "../lib/site";
 import { Navbar } from "../components/site/Navbar";
 import { Footer } from "../components/site/Footer";
 
@@ -122,6 +122,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
         { rel: "apple-touch-icon", href: "/images/pcready-mark.png" },
         { rel: "canonical", href: pageUrl },
+        { rel: "me", href: GITHUB_PROFILE },
       ],
     };
   },

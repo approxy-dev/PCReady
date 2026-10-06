@@ -5,6 +5,12 @@ export const SITE_URL = (import.meta.env["VITE_SITE_URL"] ?? "https://pcready.ap
   "",
 );
 
+// The developer's GitHub profile. github.com publishes no sitemap for user
+// profiles, so a profile is only ever discovered through inbound links: this
+// URL is emitted both as <link rel="me"> in the document head and as a plain
+// anchor in the footer, which is what gives a crawler a path back to it.
+export const GITHUB_PROFILE = "https://github.com/approxy-dev";
+
 function formatSize(bytes: number): string {
   const mb = bytes / (1024 * 1024);
   return mb >= 100 ? `${mb.toFixed(0)} MB` : `${mb.toFixed(1)} MB`;
