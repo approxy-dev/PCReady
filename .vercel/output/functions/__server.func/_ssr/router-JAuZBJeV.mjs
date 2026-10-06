@@ -7,10 +7,10 @@ import { DownloadButton } from "./DownloadButton-BRoxT8i6.mjs";
 import { SITE_URL } from "./site-DPGkgDjD.mjs";
 import { QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
 import { QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-DeWr8gLu.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-JAuZBJeV.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
-var styles_default = "/assets/styles-Dc5-Yrvj.css";
+var styles_default = "/assets/styles-CRACNESI.css";
 function PCReadyMark({ className, tone = "light" }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", {
 		src: "/images/pcready-mark.png",
@@ -129,43 +129,56 @@ function Navbar() {
 		}) : null]
 	});
 }
-var groups = [{
-	title: "Product",
-	links: [
-		{
-			label: "Features",
-			to: "/features"
-		},
-		{
-			label: "App Catalog",
-			to: "/catalog"
-		},
-		{
-			label: "Profiles",
-			to: "/profiles"
-		},
-		{
-			label: "How It Works",
-			to: "/how-it-works"
-		}
-	]
-}, {
-	title: "Resources",
-	links: [
-		{
-			label: "Documentation",
-			to: "/documentation"
-		},
-		{
-			label: "Privacy",
-			to: "/privacy"
-		},
-		{
-			label: "Terms",
-			to: "/terms"
-		}
-	]
-}];
+var groups = [
+	{
+		title: "Product",
+		links: [
+			{
+				label: "Features",
+				to: "/features"
+			},
+			{
+				label: "App Catalog",
+				to: "/catalog"
+			},
+			{
+				label: "Profiles",
+				to: "/profiles"
+			},
+			{
+				label: "How It Works",
+				to: "/how-it-works"
+			}
+		]
+	},
+	{
+		title: "Resources",
+		links: [
+			{
+				label: "Documentation",
+				to: "/documentation"
+			},
+			{
+				label: "Privacy",
+				to: "/privacy"
+			},
+			{
+				label: "Terms",
+				to: "/terms"
+			}
+		]
+	},
+	{
+		title: "Contact",
+		links: [{
+			label: "approxydev@gmail.com",
+			href: "mailto:approxydev@gmail.com"
+		}, {
+			label: "GitHub",
+			href: "https://github.com/approxydev"
+		}]
+	}
+];
 function Footer() {
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("footer", {
 		className: "border-t border-border bg-[#2E3033] text-[#E5E4E2]",
@@ -173,7 +186,7 @@ function Footer() {
 			className: "py-14",
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
-					className: "grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]",
+					className: "grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
 						/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "flex items-center gap-2.5",
@@ -200,11 +213,19 @@ function Footer() {
 							children: g.title
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
 							className: "mt-4 space-y-2.5",
-							children: g.links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+							children: g.links.map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: "href" in l ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: l.href,
+								className: "text-sm text-[#E5E4E2] transition-colors hover:text-white",
+								...l.href.startsWith("http") ? {
+									target: "_blank",
+									rel: "noopener"
+								} : {},
+								children: l.label
+							}) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
 								to: l.to,
 								className: "text-sm text-[#E5E4E2] transition-colors hover:text-white",
 								children: l.label
-							}) }, l.to))
+							}) }, "href" in l ? l.href : l.to))
 						})]
 					}, g.title))]
 				}),

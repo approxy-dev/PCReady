@@ -3,7 +3,11 @@ import { Container } from "./primitives";
 import { PCReadyMark } from "./PCReadyMark";
 import { GITHUB_PROFILE } from "../../lib/site";
 
-const groups = [
+type FooterLink =
+  { label: string; to: string; href?: never } | { label: string; href: string; to?: never };
+type FooterGroup = { title: string; links: FooterLink[] };
+
+const groups: FooterGroup[] = [
   {
     title: "Product",
     links: [
@@ -21,13 +25,20 @@ const groups = [
       { label: "Terms", to: "/terms" },
     ],
   },
+  {
+    title: "Contact",
+    links: [
+      { label: "approxydev@gmail.com", href: "mailto:approxydev@gmail.com" },
+      { label: "GitHub", href: "https://github.com/approxydev" },
+    ],
+  },
 ];
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-[#2E3033] text-[#E5E4E2]">
       <Container className="py-14">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2.5">
               <PCReadyMark className="h-8 w-8" tone="dark" />
@@ -47,13 +58,25 @@ export function Footer() {
               </h2>
               <ul className="mt-4 space-y-2.5">
                 {g.links.map((l) => (
-                  <li key={l.to}>
-                    <Link
-                      to={l.to}
-                      className="text-sm text-[#E5E4E2] transition-colors hover:text-white"
-                    >
-                      {l.label}
-                    </Link>
+                  <li key={"href" in l ? l.href : l.to}>
+                    {"href" in l ? (
+                      <a
+                        href={l.href}
+                        className="text-sm text-[#E5E4E2] transition-colors hover:text-white"
+                        {...(l.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener" }
+                          : {})}
+                      >
+                        {l.label}
+                      </a>
+                    ) : (
+                      <Link
+                        to={l.to}
+                        className="text-sm text-[#E5E4E2] transition-colors hover:text-white"
+                      >
+                        {l.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
