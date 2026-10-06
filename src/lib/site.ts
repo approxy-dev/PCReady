@@ -1,6 +1,10 @@
 // Central site constants. Change VITE_SITE_URL (or edit the fallback below) to
 // the production origin before deploying — it feeds sitemap.xml links and og:image.
-export const SITE_URL = (import.meta.env["VITE_SITE_URL"] ?? "https://pcready.app").replace(
+//
+// The fallback is the project's own Vercel production domain. pcready.app was
+// never registered, so a canonical pointing at it would send crawlers to a
+// non-existent host and the page would never be indexed.
+export const SITE_URL = (import.meta.env["VITE_SITE_URL"] ?? "https://pc-ready-gamma.vercel.app").replace(
   /\/+$/,
   "",
 );
