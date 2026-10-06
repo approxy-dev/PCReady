@@ -6,6 +6,8 @@ desktop application that rebuilds your software environment after a fresh instal
 Built with [TanStack Start](https://tanstack.com/start) (SSR), React 19, Vite 8,
 and Tailwind CSS v4.
 
+Maintained by [approxy-dev](https://github.com/approxy-dev).
+
 The site is **statically prerendered (SSG)** at build time, so the output can be hosted
 anywhere — GitHub Pages, Netlify, Cloudflare Pages, Vercel, or a plain web server.
 
