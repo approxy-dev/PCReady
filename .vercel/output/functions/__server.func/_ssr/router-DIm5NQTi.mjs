@@ -4,10 +4,10 @@ import { HeadContent, Link, Outlet, Scripts, createFileRoute, createRootRouteWit
 import { Container, buttonClass, cn } from "./primitives-DoEGU8Cj.mjs";
 import { Menu, X } from "../_libs/lucide-react.mjs";
 import { DownloadButton } from "./DownloadButton-BRoxT8i6.mjs";
-import { SITE_URL } from "./site-DPGkgDjD.mjs";
+import { GITHUB_PROFILE, SITE_URL } from "./site-BpsE1Dos.mjs";
 import { QueryClientProvider } from "../_libs/tanstack__react-query.mjs";
 import { QueryClient } from "../_libs/tanstack__query-core.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/router-JAuZBJeV.js
+//#region node_modules/.nitro/vite/services/ssr/assets/router-DIm5NQTi.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var styles_default = "/assets/styles-CRACNESI.css";
@@ -237,14 +237,24 @@ function Footer() {
 						" PCReady. All rights reserved."
 					] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "flex flex-wrap items-center gap-x-4 gap-y-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
-							to: "/download",
-							className: "font-semibold text-[#E5E4E2] transition-colors hover:text-white",
-							children: "Download PCReady"
-						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
-							className: "font-mono",
-							children: "Windows 10 · Windows 11 · x64 · ARM64"
-						})]
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Link, {
+								to: "/download",
+								className: "font-semibold text-[#E5E4E2] transition-colors hover:text-white",
+								children: "Download PCReady"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+								href: GITHUB_PROFILE,
+								target: "_blank",
+								rel: "noopener noreferrer",
+								className: "font-semibold text-[#E5E4E2] transition-colors hover:text-white",
+								children: "PCReady on GitHub"
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+								className: "font-mono",
+								children: "Windows 10 · Windows 11 · x64 · ARM64"
+							})
+						]
 					})]
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
@@ -411,6 +421,10 @@ var Route$9 = createRootRouteWithContext()({
 				{
 					rel: "canonical",
 					href: pageUrl
+				},
+				{
+					rel: "me",
+					href: GITHUB_PROFILE
 				}
 			]
 		};
@@ -443,7 +457,7 @@ function RootComponent() {
 		})
 	});
 }
-var $$splitComponentImporter$8 = () => import("./routes-rKIRS2yg.mjs");
+var $$splitComponentImporter$8 = () => import("./routes-BgDG3x4Y.mjs");
 var title$8 = "PCReady — Fresh PC. Ready Faster.";
 var description$8 = "PCReady rebuilds your Windows software environment in minutes: 336 curated apps across 23 categories, 5 setup profiles, automated installation, WinGet and direct installers.";
 var Route$8 = createFileRoute("/")({
@@ -501,7 +515,7 @@ var Route$7 = createFileRoute("/catalog")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$7, "component")
 });
-var $$splitComponentImporter$6 = () => import("./documentation-CrM57tEE.mjs");
+var $$splitComponentImporter$6 = () => import("./documentation-BM4sERpi.mjs");
 var title$6 = "Documentation — PCReady";
 var description$6 = "PCReady documentation: getting started, profiles, installation states, settings, logging, and the technical architecture behind the application.";
 var Route$6 = createFileRoute("/documentation")({
@@ -530,7 +544,7 @@ var Route$6 = createFileRoute("/documentation")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-var $$splitComponentImporter$5 = () => import("./download-CkIZiFx3.mjs");
+var $$splitComponentImporter$5 = () => import("./download-CdHnCXdR.mjs");
 var title$5 = "Download PCReady — Thank You";
 var description$5 = "Thank you for downloading PCReady. Restart the download if it hasn't started, and review the caution and responsibility notice before use.";
 var Route$5 = createFileRoute("/download")({
@@ -675,7 +689,7 @@ var Route$1 = createFileRoute("/profiles")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-var $$splitComponentImporter = () => import("./terms-_fN1hChN.mjs");
+var $$splitComponentImporter = () => import("./terms-Dc1L6AzL.mjs");
 var title = "Terms — PCReady";
 var description = "Terms of use for PCReady, a free Windows desktop application for preparing software environments after a fresh installation.";
 var Route = createFileRoute("/terms")({

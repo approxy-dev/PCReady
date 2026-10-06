@@ -1,4 +1,4 @@
-//#region node_modules/.nitro/vite/services/ssr/assets/site-DPGkgDjD.js
+//#region node_modules/.nitro/vite/services/ssr/assets/site-BpsE1Dos.js
 var SITE_URL = ({
 	"BASE_URL": "/",
 	"DEV": false,
@@ -13,6 +13,7 @@ var SITE_URL = ({
 	"TSS_ROUTER_BASEPATH": "",
 	"TSS_SERVER_FN_BASE": "/_serverFn/"
 }["VITE_SITE_URL"] ?? "https://pcready.app").replace(/\/+$/, "");
+var GITHUB_PROFILE = "https://github.com/approxy-dev";
 function formatSize(bytes) {
 	const mb = bytes / 1048576;
 	return mb >= 100 ? `${mb.toFixed(0)} MB` : `${mb.toFixed(1)} MB`;
@@ -33,4 +34,4 @@ var legalDisclaimer = {
 	body: "PCReady is a legitimate system-preparation tool. It does not distribute, endorse, or promote cracked, pirated, or unlicensed software — including unofficial versions or activators for Internet Download Manager, Microsoft Windows, or Microsoft Office. You are solely responsible for obtaining valid licences and ensuring your use of any software is lawful. PCReady and its developers are not responsible for how the application is used."
 };
 //#endregion
-export { SITE_URL, downloadArtifact, legalDisclaimer };
+export { GITHUB_PROFILE, SITE_URL, downloadArtifact, legalDisclaimer };
