@@ -30,11 +30,11 @@ var findRouteRules = /* @__PURE__ */ (() => {
 		return r.reverse();
 	};
 })();
-var _lazy_dac6f62f3c2ff704 = defineLazyEventHandler(() => import("./_chunks/ssr-renderer.mjs"));
+var _lazy_a9d15ccda712d565 = defineLazyEventHandler(() => import("./_chunks/ssr-renderer.mjs"));
 var findRoute = /* @__PURE__ */ (() => {
 	const data = {
 		route: "/**",
-		handler: _lazy_dac6f62f3c2ff704
+		handler: _lazy_a9d15ccda712d565
 	};
 	return ((_m, p) => {
 		return {

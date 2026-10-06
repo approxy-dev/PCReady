@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pcready.app/sitemap.xml
+Sitemap: https://pc-ready-gamma.vercel.app/sitemap.xml

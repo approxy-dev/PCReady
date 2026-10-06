@@ -34,3 +34,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Vercel CLI link state. `.vercel/output/` IS tracked on purpose — it is
+# the deployable Build Output, regenerated with `VERCEL=1 npm run build`.
+.vercel/project.json
+.vercel/README.txt
